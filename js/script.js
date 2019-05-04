@@ -6,7 +6,9 @@ window.addEventListener('load', () => {
     let locationTimeZone = document.querySelector('.location-timezone');
     let tempSection = document.querySelector('.temperature');
     const tempSpan = document.querySelector('.temperature span');
-    const currentTime = document.querySelector('.time');
+    const dayHumidity = document.querySelector('.humidity');
+    const UV = document.querySelector('.uvIndex');
+    const dayWindSpeed = document.querySelector('.windspeed');
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(Position => {
@@ -22,12 +24,15 @@ window.addEventListener('load', () => {
                 })
                 .then(data => {
                     // console.log(data);
-                    const { temperature, summary, icon } = data.currently;
+                    const { temperature, summary, icon, humidity, visibility, uvIndex } = data.currently;
                     // set dom elements from the api
+                    dayHumidity.textContent = humidity;
                     temperatureDegree.textContent = temperature;
                     temperatureDescription.textContent = summary;
                     locationTimeZone.textContent = data.timezone;
-                    currentTime.textContent = data.uvIndex;
+                    UV.textContent = uvIndex;
+
+
                     // formula for celsus
                     let celsius = (temperature - 32) * (5 / 9);
                     //set icons
@@ -39,10 +44,10 @@ window.addEventListener('load', () => {
                     tempSection.addEventListener('click', () => {
                         if (tempSpan.textContent === "F") {
                             tempSpan.textContent = "C";
-                            temperatureDegree.textContent = Math.floor(celsius);
+                            temperatureDegree.textContent = Math.floor(celsius) + ' ' + 'C';
                         } else {
                             tempSpan.textContent = "F";
-                            temperatureDegree.textContent = temperature;
+                            temperatureDegree.textContent = temperature + ' ' + 'F';
                         }
                     })
 
@@ -52,7 +57,7 @@ window.addEventListener('load', () => {
     }
 
     function setIcons(icon, iconID) {
-        const skycons = new Skycons({ "color": "white" });
+        const skycons = new Skycons({ "color": "black" });
         const currentIcon = icon.replace(/-/g, "_").toUpperCase();
         skycons.play();
         return skycons.set(iconID, Skycons[currentIcon]);

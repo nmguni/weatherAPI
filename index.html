@@ -12,17 +12,28 @@
 </head>
 
 <body>
-    <div class="time">time</div>
-    <div class="location">
-        <h1 class="location-timezone">timezone</h1>
-        <canvas class="icon" width="128" height="128"></canvas>
-    </div>
-    <div class="temperature">
-        <div class="degree-section">
-            <h2 class="temp-degree">34</h2>
-            <span>F</span>
+    <div class="card">
+        <!-- <div class="time">time</div> -->
+        <div class="location">
+            <h1 class="location-timezone">London</h1>
+            <canvas class="icon" width="128" height="128"></canvas>
         </div>
-        <div class="temp-description">its nice and warm</div>
+        <div class="temperature">
+            <div class="degree-section">
+                <h2 class="temp-degree">34</h2>
+                <span style="display: none">F</span>
+            </div>
+            <div class="weather-descriptions">
+                <div class="temp-description">its nice and warm</div>
+                <div> humidity:
+                    <span class="humidity"></span>
+                </div>
+                <div> uvIndex:
+                    <span class="uvIndex"></span>
+                </div>
+            </div>
+
+        </div>
     </div>
     <!-- scripts -->
     <script src="skycons.js"></script>

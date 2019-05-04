@@ -1,41 +1,26 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 body{
-    height: 100vh;
+    background: #8c9eff;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    background: #ccc; 
-    align-items: center;
-/* fontfam */
+    
 }
 
-.location,
-.temperature{
-    height: 30vh;
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.card{
+    text-align: center;
+    background: #5870cb;
+    margin-top: 25%;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 5px 3px 10px  #000;
+    text-transform: capitalize;
 }
 
-.temperature{
-    flex-direction: column;
+.weather-descriptions{
+    letter-spacing: 3px;
+    line-height: 20px;
+    font-weight: 600;
+    color: rgb(126, 212, 212);
 }
 
-.degree-section{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.degree-section span{
-    margin: 10px;
-    font-size: 30px;
-}
-.degree-section h2{
-    font-size: 40px;
-}
